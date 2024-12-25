@@ -1,0 +1,50 @@
+{
+    "name": "xsamplecontrast",
+    // "image": "nvcr.io/nvidia/pytorch:23.09-py3",
+    "dockerFile": "Dockerfile",
+    "workspaceFolder": "/home/xsamplecontrast/xsampleContrastive",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/home/xsamplecontrast/xsampleContrastive,type=bind,consistency=cached",
+    "runArgs": [
+        "--env",
+        "DISPLAY=:1.0",
+        "--volume",
+        "/tmp/.X11-unix:/tmp/.X11-unix:rw",
+        "--env",
+        "XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR}",
+        "--env",
+        "WAYLAND_DISPLAY=${WAYLAND_DISPLAY}",
+        "--privileged",
+        "--ipc=host",
+        "--gpus",
+        "all",
+        "--shm-size",
+        "16G",
+        "--name",
+        "xsamplecontrast",
+        "--network",
+        "host",
+        "--rm",
+        "-w",
+        "/home/xsamplecontrast/xsampleContrastive"
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.black-formatter",
+                "ms-python.isort",
+                "ms-azuretools.vscode-docker",
+                "ms-toolsai.jupyter-keymap",
+                "ms-toolsai.jupyter",
+                "mhutchie.git-graph",
+                "eamodio.gitlens"
+            ]
+        }
+    },
+    "containerEnv": {
+        "TERM": "xterm-256color",
+        "WANDB_API_KEY": "${localEnv:WANDB_API_KEY}"
+    },
+    // "remoteUser": "xsamplecontrast",
+    // "postAttachCommand": "bash -i -c 'source /usr/share/bash-completion/completions/git'"
+}
