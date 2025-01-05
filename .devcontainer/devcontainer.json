@@ -45,6 +45,7 @@
         "TERM": "xterm-256color",
         "WANDB_API_KEY": "${localEnv:WANDB_API_KEY}"
     },
+    "postCreateCommand": ".devcontainer/post_create_commands.sh",
     // "remoteUser": "xsamplecontrast",
     // "postAttachCommand": "bash -i -c 'source /usr/share/bash-completion/completions/git'"
 }

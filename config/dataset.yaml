@@ -1,0 +1,2 @@
+pointcloud_folder: ../data/3d/ShapenetCore.v2
+image_folder: ../data/2d/ModelNet40
