@@ -1,0 +1,31 @@
+project_name: xsampleContrastivePCDDGCNN
+data:
+  pointcloud_folder: /home/xsamplecontrast/xsampleContrastive/data/ShapeNetCore.v2_3d
+  image_folder: /home/xsamplecontrast/xsampleContrastive/data/ShapeNetCore.v2_2d
+  num_points: 2048
+  filenames_file: ./data/ShapeNetCore.v2_3d/split_files.json
+  min_rot_angle: -5
+  max_rot_angle: 5
+  use_rotate_augmentation: True
+
+model:
+  name: dgcnn
+  emb_dims: 1024
+  k: 40
+  dropout: 0.5
+
+train:
+  num_epochs: 100
+  batch_size: 16
+  num_workers: 4
+  learning_rate: 0.01
+  weight_decay: 0.0
+  log_interval: 10
+  checkpoint_interval: 10
+  resume: False
+  save_folder: ./checkpoints
+
+loss:
+  name: contrastive
+  labels_temperature: 0.07
+  preds_temperature: 1.0

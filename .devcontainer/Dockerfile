@@ -33,4 +33,4 @@ RUN ln -fs /usr/share/zoneinfo/$TZ /etc/localtime && \
     && dpkg-reconfigure -f noninteractive tzdata \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
     
-RUN pip3 install trimesh "pyglet<2"
+RUN pip3 install trimesh "pyglet<2" transformers
